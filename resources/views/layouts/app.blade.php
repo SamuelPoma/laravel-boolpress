@@ -28,6 +28,8 @@
     <div class="container">
       @yield('blog-content')
     </div>
+
     @include('partials._footer')
   </body>
+  
 </html>
