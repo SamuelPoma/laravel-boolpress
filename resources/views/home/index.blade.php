@@ -11,6 +11,7 @@
       </div>
         <div class="info-post">
           <h5 class="font-weight-bold"><span>Category:</span>
+              {{--risoluzione, post->categories, devo ciclare su di lui che è l'array  --}}
             @foreach ($post->categories as $category)
               {{$category['category_name']}}
             @endforeach
