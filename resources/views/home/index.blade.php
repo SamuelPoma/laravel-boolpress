@@ -11,9 +11,11 @@
       </div>
         <div class="info-post">
           <h5 class="font-weight-bold"><span>Category:</span>
+            @foreach ($post->categories as $category)
+              {{$category['category_name']}}
+            @endforeach
           {{--devo rendere dinamica la chiave per prendere i valori   --}}
-          {{$post->categories[0]['category_name']}}
-          {{$post->categories[1]['category_name']}}
+          {{-- {{$post->categories[1]['category_name']}} --}}
           </h5>
         </div>
         <div class="content-post">
