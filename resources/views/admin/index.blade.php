@@ -3,7 +3,7 @@
   <div class="admin_cnt">
     <h1>Admin Panel: <span class="blueText">{{$data['admin']}}</span></h1>
     <h3 class="font-weight-bold">Add new Post</h3>
-    <form class="" action="index.html" method="post">
+    <form class="" action="{{route('add_post')}}" method="post">
       {{ csrf_field() }}
       <div class="">
         <input type="text" name="title" value="" placeholder="Title">

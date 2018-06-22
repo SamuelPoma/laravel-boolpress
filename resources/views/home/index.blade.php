@@ -10,14 +10,16 @@
         <small class="item">{{$post['created_at']}}</small>
       </div>
         <div class="info-post">
-          <h5 class="font-weight-bold"><span>Category:</span>
-              {{--risoluzione, post->categories, devo ciclare su di lui che è l'array  --}}
-            @foreach ($post->categories as $category)
-              {{$category['category_name']}}
-            @endforeach
-          {{--devo rendere dinamica la chiave per prendere i valori   --}}
-          {{-- {{$post->categories[1]['category_name']}} --}}
-          </h5>
+          @foreach ($post->categories as $category)
+          <a href="{{route('posts_for_category', ['category_name' => $category['category_name']])}}">
+            <h5 class="font-weight-bold"><span>Category:</span>
+                {{--risoluzione, post->categories, devo ciclare su di lui che è l'array  --}}
+                {{$category['category_name']}}
+            {{--devo rendere dinamica la chiave per prendere i valori   --}}
+            {{-- {{$post->categories[1]['category_name']}} --}}
+            </h5>
+          </a>
+        @endforeach
         </div>
         <div class="content-post">
           <p class="lead">{{$post['content']}}</p>
