@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('blog-content')
-  <div>
-    <h1 class="title-section">Articles for category: {{$category_name}} </h1>
-  @foreach ($posts as $post)
+        <div>
+          <h1 class="title-section">Articles for category: {{$category_name}} </h1>
+    @foreach ($posts as $post)
     @foreach ($post->categories as $categoryPost)
           @if ($categoryPost['category_name'] == $category_name)
             <div class="post_cnt mt-5">

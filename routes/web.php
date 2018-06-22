@@ -13,4 +13,5 @@
 
 // routes homepage
 Route::get('/', 'HomeController@homepage')->name('homepage');
-Route::get('/category/{category_name}', 'CategoryController@viewPostForCategory')->name('category_page');
+Route::get('/category/{category_name}', 'CategoryController@viewPostForCategory')->name('posts_for_category');
+Route::get('/post/{post_slug}', 'DetailPostController@viewPostForSlug')->name('post_for_slug');
