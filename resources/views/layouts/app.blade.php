@@ -10,11 +10,11 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
     {{-- Official Themes --}}
     {{-- Take Bootstrap 4 to the next level with official premium themes—toolkits built on Bootstrap with new components and plugins, docs, and build tools. --}}
+    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <link rel="stylesheet" href="{{asset('css/app.css')}}">
   </head>
   <body>
     @include('partials._navbar')
-
     <div class="jumbotron">
       <h1 class="display-4">Hello, Welcome to Boolpress</h1>
       <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra         attention to featured content or information.</p>

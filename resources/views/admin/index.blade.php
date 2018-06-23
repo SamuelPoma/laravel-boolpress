@@ -16,6 +16,11 @@
         <textarea name="content" rows="8" cols="80" placeholder="Post Content">
         </textarea>
       </div>
+      <div class="">
+        @foreach ($categories as $category)
+          <label class="checkbox-inline"><input type="checkbox" value=""> {{$category['category_name']}}</label>
+        @endforeach
+      </div>
       <div class="pt-3 pb-3">
         <input type="submit" value="Add Post">
       </div>

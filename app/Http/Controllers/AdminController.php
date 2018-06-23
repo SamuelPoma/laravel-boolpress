@@ -13,7 +13,8 @@ class AdminController extends Controller
       $data = [
         'admin' => 'Samuel Poma',
       ];
-      return view('admin.index', ['data'=>$data]);
+      $categories = Category::all();
+      return view('admin.index', ['data'=>$data,'categories'=>$categories]);
     }
 
     public function addPost(Request $request) {
@@ -27,4 +28,30 @@ class AdminController extends Controller
       $request->session()->flash('status',"new Post added!");
       return redirect()->route('admin');
   }
-}
+
+    public function viewEditPost($post_slug) {
+      $posts = Post::where('slug',$post_slug)->get();
+
+      $categories = Category::all();
+
+      return view('admin.editPost', ['posts'=>$posts,'categories'=>$categories]);
+    }
+
+    public function updatePost(Request $request, $post_slug) {
+
+      $update = Post::where('slug', $post_slug)->first();
+
+      $update->title = $request->input('title');
+      $update->author = $request->input('author');
+      $update->slug = $request->input('slug');
+      $update->content= $request->input('content');
+
+
+      $update->save();
+
+
+      $request->session()->flash('status',"Item updated!");
+
+      return redirect()->route('admin');
+    }
+  }

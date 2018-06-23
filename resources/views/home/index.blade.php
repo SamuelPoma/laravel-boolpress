@@ -4,7 +4,12 @@
   <h1 class="title-section">Articles</h1>
   @foreach ($posts as $post)
     <div class="post_cnt mt-5">
-      <h3 class="title-post font-weight-bold">{{$post['title']}}</h3>
+      <h3 class="title-post font-weight-bold">{{$post['title']}}
+        <a href="{{route('edit_post_page',['post_slug' => $post['slug']])}}">
+          <i class="fas fa-pencil-alt ml-4 edit-icon blueText"></i>
+        </a>
+      </h3>
+
       <div class="info-post">
         <h5 class="item pr-3">{{$post['author']}}</h5>
         <small class="item">{{$post['created_at']}}</small>
