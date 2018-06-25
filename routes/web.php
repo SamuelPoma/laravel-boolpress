@@ -19,3 +19,4 @@ Route::get('/admin/post/new', 'AdminController@adminView')->name('admin');
 Route::post('/admin/post/new/add', 'AdminController@addPost')->name('add_post');
 Route::get('/admin/post/edit/{post_slug}', 'AdminController@viewEditPost')->name('edit_post_page');
 Route::post('/admin/post/new/update/{post_slug}', 'AdminController@updatePost')->name('update_post');
+Route::get('/search', 'SearchController@searchPost')->name('searchpage');

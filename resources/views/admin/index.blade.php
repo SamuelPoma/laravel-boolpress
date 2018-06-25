@@ -18,7 +18,9 @@
       </div>
       <div class="">
         @foreach ($categories as $category)
-          <label class="checkbox-inline"><input type="checkbox" value=""> {{$category['category_name']}}</label>
+          <label class="checkbox-inline">
+            <input type="checkbox" name="category[]" multiple value="{{$category['id']}}"> {{$category['category_name']}}
+          </label>
         @endforeach
       </div>
       <div class="pt-3 pb-3">

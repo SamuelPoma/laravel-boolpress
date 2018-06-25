@@ -18,13 +18,15 @@ class AdminController extends Controller
     }
 
     public function addPost(Request $request) {
+      $data = $request->all();
+
+
       $new_post = new Post();
-      $new_post->title = $request->input('title');
-      $new_post->author = $request->input('author');
-      $new_post->slug = $request->input('slug');
-      $new_post->content= $request->input('content');
+
+      $new_post->fill($data);
 
       $new_post->save();
+      $new_post->categories()->sync($data['category']);
       $request->session()->flash('status',"new Post added!");
       return redirect()->route('admin');
   }
@@ -49,9 +51,7 @@ class AdminController extends Controller
 
       $update->save();
 
-
       $request->session()->flash('status',"Item updated!");
-
       return redirect()->route('admin');
     }
   }
