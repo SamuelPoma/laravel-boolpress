@@ -13,7 +13,7 @@ class SearchController extends Controller
 
       $data = $request->all();
 
-      // dd($data['categories']);
+
       $posts = new Post;
 
       if(!empty($data['title'])) {
@@ -27,8 +27,14 @@ class SearchController extends Controller
       if(!empty($data['author'])) {
         $posts = $posts->where('author',$data['author']);
       }
+      // come collegare il filtro che è referenziato con una tabella ponte
+      // many to many
       if(!empty($data['categories'])) {
-      
+                              // si chiama il metodo categories di post
+        $posts = $posts->whereHas('categories', function($query) use ($data) {
+          return $query->where('id', $data['categories']);
+
+        });
       }
 
 

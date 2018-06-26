@@ -37,7 +37,7 @@
           @endforeach
       </select>
     <div class="pt-3 pb-3">
-      <input type="submit" value="Add Post">
+      <input type="submit" value="Filter Post">
     </div>
   </form>
   <table class="table">
