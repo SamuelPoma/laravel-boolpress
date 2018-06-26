@@ -16,6 +16,8 @@ class SearchController extends Controller
 
       $posts = new Post;
 
+      // METODO PHP PLAIN----
+      // C'è un'alternativa? Sì, nel model si possono creare degli scope che contengono la query, perché utilizzare gli scope?Se abbiamo la stessa query da dover ripetere più volte nel nostro codice allora così la scriveremo una volta sola e basterà richiamarla con il metodo scope che abbiamo creato
       if(!empty($data['title'])) {
         $posts = $posts->where('title', 'like', '%' . $data['title'] . '%');
       }
@@ -25,20 +27,17 @@ class SearchController extends Controller
       }
 
       if(!empty($data['author'])) {
-        $posts = $posts->where('author',$data['author']);
+                      // chiamo il metodo creato nel model Post e passo la variabile
+        $posts = $posts->author($data['author']);
       }
       // come collegare il filtro che è referenziato con una tabella ponte
       // many to many
       if(!empty($data['categories'])) {
-                              // si chiama il metodo categories di post
+                        // si chiama il metodo categories di post
         $posts = $posts->whereHas('categories', function($query) use ($data) {
           return $query->where('id', $data['categories']);
-
         });
       }
-
-
-
       $posts = $posts->get();
 
       return view('search.index',['posts'=>$posts,'categories'=>$categories]);
